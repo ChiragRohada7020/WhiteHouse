@@ -277,6 +277,57 @@ def search():
 
 
 
+
+
+
+
+@app.route('/like/<product_id>', methods=['POST','GET'])
+def like_product(product_id):
+    # Check if the user has already liked the product
+
+
+    if session.get('user_id'):
+
+
+ 
+        email = session.get('user_id')
+        name = session.get('name')
+
+
+        product1=list(mydb.User.find({'email':email},{'liked_products':1,"_id":0}))
+        print(product1)
+        
+
+        
+        if product_id not in product1[0]['liked_products']:
+            mydb.mens.update_one({'_id': ObjectId(product_id)}, {'$inc': {'like': 1}})
+            mydb.User.update_one({'email': email}, {'$addToSet': {'liked_products': product_id}})
+        return {"res":"ok"}
+
+        
+        # if id:
+        #     result = mydb.User.update_one(
+        #     {'email': email},
+        #     {'$push': {'cart': id}}
+        #     )
+        # cart=[]
+        # # Find the document using the ObjectId
+        # product1=mydb.User.find({'email':email},{'cart':1,"_id":0})
+        # for i in product1:
+        #     for j in i['cart']:
+        #         object_id = ObjectId(j)
+        #         product = mydb.mens.find_one({'_id': object_id})
+        #         cart.append(product)
+    else:
+        return {"res":"error"}
+
+
+
+
+
+
+
+
 @app.route("/fashion")
 def fashion():
     if 'user_id' in session:
@@ -331,7 +382,7 @@ def fashion():
     # print(Dress)
 
 
-    return render_template("fashion.html",Filter=Filter,Dress=filtered_products,login=login,type=type)
+    return render_template("fashion.html",Filter=Filter,Dress=filtered_products,login=login,type=type )
 
 
 
