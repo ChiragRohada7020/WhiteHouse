@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="bg-white w-full fixed  top-0 z-50 border-2 border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 p-5 md:p-10 md:pt-5 ">
+            <div class="flex  gap-10  ">
+                <img class="w-8 h-8 md:w-10 md:h-10 md:hidden mt-2 " onclick="nav()"
+                    src="https://cdn.iconscout.com/icon/free/png-256/free-three-116-433170.png" alt="">
+                <img class="w-12 h-12 text-center" src="{{ url_for('static', filename='Images/logo2.jpeg') }}" alt="">
+
+
+            </div>
+            <div id="nav" class="hidden  m-5 md:block">
+                <ul class="flex  flex-col md:flex-row duration-300   gap-10 text-lg md:text-xl pt-4   ">
+                    <a href="{{ url_for('index') }}">
+                        <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
+                            Home
+                        </li>
+                    </a>
+                    <a href="{{ url_for('index') }}">
+                        <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
+                            Cart
+                        </li>
+                    </a>
+                    <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
+                        Trending
+                    </li>
+                    <a href="{{ url_for('index') }}">
+                        <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
+                            Login
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+
+    <form class="  fixed top-4 right-0 pr-2 z-50 w-2/4" action="{{ url_for('fashion') }}" method="GET">
+        <div class="pt-2 relative mx-auto text-gray-600">
+            <input oninput="fetchData()" id="search1"
+                class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                type="search" name="search" placeholder="Search">
+            <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+                <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                    viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+                    width="512px" height="512px">
+                    <path
+                        d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                </svg>
+            </button>
+
+        </div>
+    </form>
+
+    <div class="mt-10">
+
+    </div>
+
+    <!-- component -->
+    <!-- Create By Joker Banny -->
+    <style>
+        @layer utilities {
+
+            input[type="number"]::-webkit-inner-spin-button,
+            input[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    </style>
+
+    <body>
+        <div class="h-screen bg-gray-50 pt-20">
+            <h1 class="mb-10 text-center text-2xl font-bold"><span class="text-purple-500">C</span>art <span
+                    class="text-purple-500">I</span>tems</h1>
+            <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+                <div class="rounded-lg md:w-2/3">
+                    {% for i in cart %}
+                    <div class="flex justify-between gap-4 mb-6 rounded-lg bg-white p-5 pr-2 shadow-md sm:flex sm:justify-center">
+                        <div class="p-5">
+                           <div>
+                            <img src="{{ url_for('static', filename='uploads/'+i['ImageUrl'][0]) }}" alt="product-image"
+                            class="w-56 h-28 rounded-lg sm:w-40" />
+                           </div>
+                           <div>
+                            <div class="mt-2 p-5">
+                                <!-- <h2 class="text-lg font-bold text-gray-900">{{i['Brand']}}</h2> -->
+                                <p class=" text-lg font-semibold text-gray-700">{{i["Category"]}}</p>
+                            </div>
+
+                           </div>
+                        </div>
+
+                        <div class="flex flex-col gap-5 ml-2">
+                            
+                            <div class="mt-5  flex flex-col gap-2">
+                                <h2 class="text-base font-bold text-gray-900"><span class="px-2"><span class="text-purple-500">B</span>arcode :-</span>  {{i['Barcode']}}</h2>
+                                <p class="mt-1 text-base  text-gray-700"><span class="px-2 text-base font-bold"><span class="text-purple-500">D</span>escription :-</span> {{i["Description"]}}</p>
+                            </div>
+
+                            <div class="pt-5 pl-10 ">
+                                <a href="/dcart?di={{i['_id']}}">
+                                    <button class="items-end text-end bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full">
+                                        Delete
+                                      </button>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+                <!-- Sub total -->
+                <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+                    
+                    <hr class="my-4" />
+                    <div class="flex justify-between">
+                        <p class="text-lg font-bold"><span>V</span>ist Near Store To Purchase This Items</p>
+                        
+                    </div>
+                    <button
+                        class="mt-6 w-full rounded-md bg-black p-5 font-medium text-blue-50 hover:bg-blue-600">White House</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        const nav = () => {
+            nav1 = document.getElementById("nav").classList[0]
+
+            if (nav1 == 'hidden') {
+                document.getElementById("nav").classList = 'block '
+            }
+            else {
+                document.getElementById("nav").classList = 'hidden md:block'
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Product</title>
+        <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
+
+    </head>
+    <body>
+    
+    <div class="container mt-4">
+        <h1>Add a New Product</h1>
+        
+        <form action=" {{ url_for('products.add_product') }}" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Product Name:</label>
+                <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" class="form-control lowercase"  required></textarea>
+            </div>
+    
+    
+            <div class="w-full md:w-1/4 px-2 mb-4">
+                <label for="category" class="block text-sm font-medium text-gray-600">Category:</label>
+                <select name="category" id="category" class="mt-1 p-2 w-full border rounded-md " required >
+
+                   
+
+                {% for i in Filter %}
+
+    {%for j in i['category'] %}
+    
+    <option value={{j}}>{{j}}</option>
+       {%endfor %}
+    {%endfor %}
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+    
+            <div class="w-full md:w-1/4 px-2 mb-4">
+                <label for="type" class="block text-sm font-medium text-gray-600">Type:</label>
+                <select name="type" id="type" class="mt-1 p-2 w-full border rounded-md " required >
+
+                   
+
+                {% for i in Filter %}
+
+    {%for j in i['type'] %}
+    
+    <option value={{j}}>{{j}}</option>
+       {%endfor %}
+    {%endfor %}
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+    
+
+            <div class="w-full md:w-1/4 px-2 mb-4">
+                <label for="brand" class="block text-sm font-medium text-gray-600">Brand:</label>
+                <select name="brand" id="brand" class="mt-1 p-2 w-full border rounded-md " required >
+
+                   
+
+                {% for i in Filter %}
+
+    {%for j in i['brand'] %}
+    
+    <option value={{j}}>{{j}}</option>
+       {%endfor %}
+    {%endfor %}
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+    
+            
+
+            <div class="w-full md:w-1/4 px-2 mb-4">
+                <label for="material" class="block text-sm font-medium text-gray-600">Material:</label>
+                <select name="material" id="material" class="mt-1 p-2 w-full border rounded-md " required >
+
+                   
+
+                {% for i in Filter %}
+
+    {%for j in i['material'] %}
+    
+    <option value={{j}}>{{j}}</option>
+       {%endfor %}
+    {%endfor %}
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="brand">Barcode:</label>
+                <input type="text" name="barcode" id="barcode" class="form-control" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" name="image" id="image" class="form-control-file " required>
+            </div>
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" name="image2" id="image" class="form-control-file" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" name="image3" id="image" class="form-control-file" required>
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+
+    
+    
+    </body>
+    </html>
+    </body>
+</html>
