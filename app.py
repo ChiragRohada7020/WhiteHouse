@@ -331,7 +331,7 @@ def fashion():
     # print(Dress)
 
 
-    return render_template("fashion.html",Filter=Filter,Dress=filtered_products,login=login)
+    return render_template("fashion.html",Filter=Filter,Dress=filtered_products,login=login,type=type)
 
 
 
