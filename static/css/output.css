@@ -737,6 +737,18 @@ video {
   margin: 5rem;
 }
 
+.m-52 {
+  margin: 13rem;
+}
+
+.m-10 {
+  margin: 2.5rem;
+}
+
+.m-28 {
+  margin: 7rem;
+}
+
 .-mx-2 {
   margin-left: -0.5rem;
   margin-right: -0.5rem;
@@ -1037,6 +1049,23 @@ video {
   height: 0.25rem;
 }
 
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
+.h-5\/6 {
+  height: 83.333333%;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1134,8 +1163,34 @@ video {
   width: 0.25rem;
 }
 
+.w-max {
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.w-5\/6 {
+  width: 83.333333%;
+}
+
+.w-9\/12 {
+  width: 75%;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
+}
+
+.min-w-max {
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 
 .max-w-5xl {
@@ -1192,6 +1247,14 @@ video {
 
 .resize-x {
   resize: horizontal;
+}
+
+.snap-x {
+  scroll-snap-type: x var(--tw-scroll-snap-strictness);
+}
+
+.snap-center {
+  scroll-snap-align: center;
 }
 
 .appearance-none {
@@ -1292,6 +1355,10 @@ video {
 
 .overflow-x-scroll {
   overflow-x: scroll;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 
 .truncate {
@@ -1521,6 +1588,18 @@ video {
 
 .p-2\.5 {
   padding: 0.625rem;
+}
+
+.p-20 {
+  padding: 5rem;
+}
+
+.p-52 {
+  padding: 13rem;
+}
+
+.p-28 {
+  padding: 7rem;
 }
 
 .px-2 {
