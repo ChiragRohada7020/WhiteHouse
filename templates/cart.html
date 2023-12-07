@@ -10,35 +10,49 @@
 </head>
 
 <body>
+    <div class="fixed top-0 p-5 px-10 bg-white w-full">
+        <img class="w-12 h-12 text-center" src="{{ url_for('static', filename='Images/logo2.jpeg') }}" alt="">
+    </div>
 
-    <nav class="bg-white w-full fixed  top-0 z-50 border-2 border-gray-100">
-        <div class="grid grid-cols-1 md:grid-cols-2 p-5 md:p-10 md:pt-5 ">
-            <div class="flex  gap-10  ">
-                <img class="w-8 h-8 md:w-10 md:h-10 md:hidden mt-2 " onclick="nav()"
-                    src="https://cdn.iconscout.com/icon/free/png-256/free-three-116-433170.png" alt="">
+    <nav class="bg-white w-full  fixed h-14 p-2 bottom-0 z-50 border-2 border-gray-200">
+        <div class=" ">
+            <!-- <div class="flex  gap-10  ">
+                <img class="w-6 h-6 md:w-10 md:h-10 md:hidden mt-3 " onclick="nav()"
+                    src="https://www.shareicon.net/data/512x512/2015/11/12/671112_horizontal_512x512.png" alt="">
                 <img class="w-12 h-12 text-center" src="{{ url_for('static', filename='Images/logo2.jpeg') }}" alt="">
 
 
-            </div>
-            <div id="nav" class="hidden  m-5 md:block">
-                <ul class="flex  flex-col md:flex-row duration-300   gap-10 text-lg md:text-xl pt-4   ">
-                    <a href="{{ url_for('index') }}">
-                        <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
-                            Home
-                        </li>
+            </div> -->
+            <div id="nav" class=" md:block">
+                <ul class="flex justify-between px-20   flex-row md:flex-row duration-300   gap-10 text-lg md:text-xl    ">
+                    <a class="" href="{{ url_for('index') }}">
+                        <svg class="ml-1 w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="home"><path fill="none" stroke="#200E32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.65721519,18.7714023 L6.65721519,15.70467 C6.65719744,14.9246392 7.29311743,14.2908272 8.08101266,14.2855921 L10.9670886,14.2855921 C11.7587434,14.2855921 12.4005063,14.9209349 12.4005063,15.70467 L12.4005063,15.70467 L12.4005063,18.7809263 C12.4003226,19.4432001 12.9342557,19.984478 13.603038,20 L15.5270886,20 C17.4451246,20 19,18.4606794 19,16.5618312 L19,16.5618312 L19,7.8378351 C18.9897577,7.09082692 18.6354747,6.38934919 18.0379747,5.93303245 L11.4577215,0.685301154 C10.3049347,-0.228433718 8.66620456,-0.228433718 7.51341772,0.685301154 L0.962025316,5.94255646 C0.362258604,6.39702249 0.00738668938,7.09966612 0,7.84735911 L0,16.5618312 C0,18.4606794 1.55487539,20 3.47291139,20 L5.39696203,20 C6.08235439,20 6.63797468,19.4499381 6.63797468,18.7714023 L6.63797468,18.7714023" transform="translate(2.5 2)"></path></svg>                        <h1 class="text-xs mt-1 font-normal hover:text-blue-800 text-center uppercase">Home</h1>
                     </a>
-                    <a href="{{ url_for('index') }}">
-                        <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
-                            Cart
-                        </li>
+                 
+                   
+                    <a href="/logout">
+                        <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="account"><path d="M10 9a6 6 0 1 1 6 6 6 6 0 0 1-6-6Zm16 20H6a3 3 0 0 1-3-3 9 9 0 0 1 9-9h8a9 9 0 0 1 9 9 3 3 0 0 1-3 3Z"></path></svg>                        <!-- <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
+                           {{login}}
+                        </li> -->
+                        <h1 class="text-xs mt-1 text-center uppercase">logout</h1>
+
                     </a>
-                    <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
-                        Trending
-                    </li>
-                    <a href="{{ url_for('index') }}">
-                        <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
-                            Login
-                        </li>
+                    <a href="{{ url_for('cart') }}">
+                        
+
+
+
+                        <div class="  flex justify-center items-center">
+                            <div class="relative ">
+                          <div class="t-0 absolute left-5">
+                            <p class="flex h-1 w-1 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">{{items}}</p>
+                          </div>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="file: mt-2 h-7 w-7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                          </svg>
+                        </div>
+                        </div>
+
                     </a>
                 </ul>
             </div>
@@ -46,23 +60,41 @@
 
     </nav>
 
-
-    <form class="  fixed top-4 right-0 pr-2 z-50 w-2/4" action="{{ url_for('fashion') }}" method="GET">
+    <!-- <form class="  fixed top-4 right-0 pr-2 z-50 w-2/4" action="{{ url_for('fashion') }}" method="GET">
         <div class="pt-2 relative mx-auto text-gray-600">
-            <input oninput="fetchData()" id="search1"
-                class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                type="search" name="search" placeholder="Search">
+            <input  id="search1" class="border-2 lowercase border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+              type="search" name="search" placeholder="Search">
             <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
-                <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
-                    viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
-                    width="512px" height="512px">
-                    <path
-                        d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+              <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+                width="512px" height="512px">
+                <path
+                  d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+              </svg>
+            </button>
+            
+          </div>
+    </form> -->
+
+
+
+    <form class="flex items-center fixed top-4 right-0 pr-2 mt-2 z-50 w-2/4" action="{{ url_for('fashion') }}" method="GET">   
+        <label for="voice-search" class="sr-only">Search</label>
+        <div class="relative w-full">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.15 5.6h.01m3.337 1.913h.01m-6.979 0h.01M5.541 11h.01M15 15h2.706a1.957 1.957 0 0 0 1.883-1.325A9 9 0 1 0 2.043 11.89 9.1 9.1 0 0 0 7.2 19.1a8.62 8.62 0 0 0 3.769.9A2.013 2.013 0 0 0 13 18v-.857A2.034 2.034 0 0 1 15 15Z"/>
+                </svg>
+            </div>
+            <input type="text" id="voice-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  " placeholder="Search Product" required>
+            <button type="button" class="absolute inset-y-0 end-0 flex items-center pe-3">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7v3a5.006 5.006 0 0 1-5 5H6a5.006 5.006 0 0 1-5-5V7m7 9v3m-3 0h6M7 1h2a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3Z"/>
                 </svg>
             </button>
-
         </div>
+       
     </form>
 
     <div class="mt-10">

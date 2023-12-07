@@ -74,7 +74,18 @@ def cart():
         email = session.get('user_id')
         name = session.get('name')
 
+
+        
+
         if id:
+
+
+            result1=mydb.User.find({"email":email},{"cart":1})
+            for i in result1:
+                for j in i["cart"]:
+                    if j==id:
+                        return {"res":"ok"}
+
             result = mydb.User.update_one(
             {'email': email},
             {'$push': {'cart': id}}
