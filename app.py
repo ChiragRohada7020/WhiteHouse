@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,url_for,jsonify, session,redirect
+from flask import Flask,render_template,request,url_for,jsonify, session,redirect,make_response
 from werkzeug.utils import secure_filename
 from waitress import serve
 
@@ -117,9 +117,18 @@ def index():
     
 
 
-
+    items=0
     if 'user_id' in session:
         login="logout"
+        
+        cart=mydb.User.find({'email':session.get('user_id')},{'cart':1,"_id":0})
+        for i in cart:
+            for j in i['cart']:
+                
+                items=items+1
+        
+
+        
     else:
         login="login"
     Trends=mydb.mens.find({"Trending":1}).limit(4)
@@ -139,13 +148,16 @@ def index():
     
     for i in womens:
         Womens.append(i)
+
+    response = make_response(render_template("index.html",Trending=Trending,Mens=Mens,Womens=Womens,login=login,items=items))
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     
 
         
 
         
 
-    return render_template("index.html",Trending=Trending,Mens=Mens,Womens=Womens,login=login)
+    return response
 
 @app.route("/sign_up",methods = ['POST', 'GET'])
 def sign_up():

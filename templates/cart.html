@@ -112,7 +112,7 @@
                             </div>
 
                             <div class="pt-5 pl-10 ">
-                                <a href="/dcart?di={{i['_id']}}">
+                                <a onclick="fetchData('{{i['_id']}}')">
                                     <button class="items-end text-end bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full">
                                         Delete
                                       </button>
@@ -153,6 +153,31 @@
 
 
         }
+
+
+        function fetchData(id) {
+
+            
+        
+fetch('/dcart?di='+id)
+    .then(response =>console.log("saved"))
+    .then(data => {
+
+        location.reload();
+
+    
+        
+
+        // Handle the response data
+        
+
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+       
+    });
+}
+
     </script>
 </body>
 
