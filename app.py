@@ -274,7 +274,7 @@ def login():
           if x:
               
            
-            if(x['password'] == password):
+            if(x['password'] == str(password)):
             
                 session['user_id']=x["email"]
                 session['name']=x["name"]
