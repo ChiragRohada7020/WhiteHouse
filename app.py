@@ -271,16 +271,20 @@ def login():
       try:
           mycol = mydb['User']
           x= mycol.find_one({"email":email})
+          if x:
+              
            
-          if(x['password'],  password):
+            if(x['password'] == password):
             
-            session['user_id']=x["email"]
-            session['name']=x["name"]
+                session['user_id']=x["email"]
+                session['name']=x["name"]
 
-            return redirect(url_for('index'))
+                return redirect(url_for('index'))
+            else:
+                error="invalid credential"
+                return render_template('login.html',error=error)
           else:
-            error="invalid credential"
-            return render_template('login.html',error=error)
+              return render_template('login.html',error="Invalid Credential")
       except:
           return render_template('login.html',error=error)
     else:
