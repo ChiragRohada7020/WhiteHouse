@@ -198,6 +198,8 @@ def sign_up():
                 'email': user_email,
             'mobile': user_mobile,
             'password': user_password,
+            'cart':[],
+            'liked_products':[]
             
                     }   
                 mydb.User.insert_one(query)
