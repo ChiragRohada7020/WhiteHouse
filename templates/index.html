@@ -9,7 +9,17 @@
 
 </head>
 
-<body class="bg-white">
+<body class="bg-white ">
+<div id="pc" class="justify-center p-20 pt-2">
+
+<img class="text-center h-1/4" src="{{ url_for('static', filename='Images/dd.jpg') }}" alt="">
+
+</div>
+
+   <div id="mobile
+   " class="sm:hidden">
+    
+
     <div class="fixed top-0 p-5 px-10 bg-white w-full">
         <img class="w-12 h-12 text-center" src="{{ url_for('static', filename='Images/logo2.jpeg') }}" alt="">
     </div>
@@ -39,7 +49,7 @@
                     </a>
                     <a href="{{ url_for('cart') }}" class="cursor-pointer">
                         
-
+ 
 
 
                         <div class="  flex justify-center items-center ">
@@ -345,6 +355,7 @@
 <footer class=" bg-black w-full mb-14 mt-10">
 <h1 class="text-sm font-semibold p-5 text-center text-white">Developed By <span class="text-purple-400">Chirag Rohada</span></h1>
 </footer>
+   </div>
 
     <script>
         const nav = () => {
