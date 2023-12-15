@@ -17,12 +17,43 @@
 </div>
 
    <div id="mobile
-   " class="sm:hidden">
-    
+   " class="sm:hidden ">
 
-    <div class="fixed top-0 p-5 px-10 bg-white w-full">
+<div id="loader" class="hidden ">
+    
+   <div role="status" class="fixed top-96 z-50 left-52">
+    <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+    </svg>
+    <span class="sr-only">Loading...</span>
+</div>
+</div>
+    
+<div id="loader_ex" class="">
+ <div class="">
+    <div class="fixed top-0 p-5 px-10 bg-white w-full border-gray-200 ">
         <img class="w-12 h-12 text-center" src="{{ url_for('static', filename='Images/logo2.jpeg') }}" alt="">
     </div>
+
+    <form class="flex items-center fixed top-4 right-0 pr-2 mt-2 z-50 w-2/4" action="{{ url_for('fashion') }}" method="GET">   
+        <label for="voice-search" class="sr-only">Search</label>
+        <div class="relative w-full">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.15 5.6h.01m3.337 1.913h.01m-6.979 0h.01M5.541 11h.01M15 15h2.706a1.957 1.957 0 0 0 1.883-1.325A9 9 0 1 0 2.043 11.89 9.1 9.1 0 0 0 7.2 19.1a8.62 8.62 0 0 0 3.769.9A2.013 2.013 0 0 0 13 18v-.857A2.034 2.034 0 0 1 15 15Z"/>
+                </svg>
+            </div>
+            <input type="text"  name="search" id="voice-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  " placeholder="Search Product" required>
+            <button type="button" class="absolute inset-y-0 end-0 flex items-center pe-3">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7v3a5.006 5.006 0 0 1-5 5H6a5.006 5.006 0 0 1-5-5V7m7 9v3m-3 0h6M7 1h2a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3Z"/>
+                </svg>
+            </button>
+        </div>
+       
+    </form>
+ </div>
 
     <nav class="bg-white w-full  fixed h-14 p-2 bottom-0 z-50 border-2 border-gray-200">
         <div class=" ">
@@ -35,19 +66,19 @@
             </div> -->
             <div id="nav" class=" md:block">
                 <ul class="flex justify-between px-20   flex-row md:flex-row duration-300   gap-10 text-lg md:text-xl    ">
-                    <a class="" href="{{ url_for('index') }}" class="cursor-pointer ">
+                    <a class="" href="{{ url_for('index') }}" onclick="loader()" class="cursor-pointer ">
                         <svg class="ml-1 w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="home"><path fill="none" stroke="#200E32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.65721519,18.7714023 L6.65721519,15.70467 C6.65719744,14.9246392 7.29311743,14.2908272 8.08101266,14.2855921 L10.9670886,14.2855921 C11.7587434,14.2855921 12.4005063,14.9209349 12.4005063,15.70467 L12.4005063,15.70467 L12.4005063,18.7809263 C12.4003226,19.4432001 12.9342557,19.984478 13.603038,20 L15.5270886,20 C17.4451246,20 19,18.4606794 19,16.5618312 L19,16.5618312 L19,7.8378351 C18.9897577,7.09082692 18.6354747,6.38934919 18.0379747,5.93303245 L11.4577215,0.685301154 C10.3049347,-0.228433718 8.66620456,-0.228433718 7.51341772,0.685301154 L0.962025316,5.94255646 C0.362258604,6.39702249 0.00738668938,7.09966612 0,7.84735911 L0,16.5618312 C0,18.4606794 1.55487539,20 3.47291139,20 L5.39696203,20 C6.08235439,20 6.63797468,19.4499381 6.63797468,18.7714023 L6.63797468,18.7714023" transform="translate(2.5 2)"></path></svg>                        <h1 class="text-xs mt-1 font-normal hover:text-blue-800 text-center uppercase">Home</h1>
                     </a>
                  
                    
-                    <a href="/{{login}}" class="cursor-pointer">
+                    <a href="/{{login}}" class="cursor-pointer" onclick="loader()">
                         <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="account"><path d="M10 9a6 6 0 1 1 6 6 6 6 0 0 1-6-6Zm16 20H6a3 3 0 0 1-3-3 9 9 0 0 1 9-9h8a9 9 0 0 1 9 9 3 3 0 0 1-3 3Z"></path></svg>                        <!-- <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8">
                            {{login}}
                         </li> -->
                         <h1 class="text-xs mt-1 text-center uppercase">{{login}}</h1>
 
                     </a>
-                    <a href="{{ url_for('cart') }}" class="cursor-pointer">
+                    <a href="{{ url_for('cart') }}"  onclick="loader()"class="cursor-pointer">
                         
  
 
@@ -91,23 +122,7 @@
 
 
 
-    <form class="flex items-center fixed top-4 right-0 pr-2 mt-2 z-50 w-2/4" action="{{ url_for('fashion') }}" method="GET">   
-        <label for="voice-search" class="sr-only">Search</label>
-        <div class="relative w-full">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.15 5.6h.01m3.337 1.913h.01m-6.979 0h.01M5.541 11h.01M15 15h2.706a1.957 1.957 0 0 0 1.883-1.325A9 9 0 1 0 2.043 11.89 9.1 9.1 0 0 0 7.2 19.1a8.62 8.62 0 0 0 3.769.9A2.013 2.013 0 0 0 13 18v-.857A2.034 2.034 0 0 1 15 15Z"/>
-                </svg>
-            </div>
-            <input type="text"  name="search" id="voice-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  " placeholder="Search Product" required>
-            <button type="button" class="absolute inset-y-0 end-0 flex items-center pe-3">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7v3a5.006 5.006 0 0 1-5 5H6a5.006 5.006 0 0 1-5-5V7m7 9v3m-3 0h6M7 1h2a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3Z"/>
-                </svg>
-            </button>
-        </div>
-       
-    </form>
+   
     
 <div class="mt-28">
 
@@ -119,7 +134,7 @@
             <div class="flex flex-nowrap ">
                <a href="fashion?type=Mens">
                 <div class="inline-block px-3">
-                    <div
+                    <div onclick="loader()"
                         class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                         <img src="https://i.pinimg.com/550x/5a/25/7d/5a257d0c2c620b1db88fd59b80d0ee9d.jpg"
                             alt="">
@@ -130,7 +145,7 @@
 
                <a href="fashion?type=Womens">
                 <div class="inline-block px-3">
-                    <div
+                    <div onclick="loader()"
                         class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                         <img src="https://images.hindustantimes.com/img/2022/12/04/original/0372b263a02a914b3e8a2e61dfd490bf_1670167327317.jpg"
                             alt="">
@@ -141,7 +156,7 @@
                
                 <a href="fashion?category=">
                     <div class="inline-block px-3">
-                        <div
+                        <div onclick="loader()"
                             class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/KN/YD/SC/182376891/kids-winter-clothes.jpeg"
                                 alt="">
@@ -152,7 +167,7 @@
                 
                 <a href="fashion?category=sweater">
                     <div class="inline-block px-3">
-                        <div
+                        <div onclick="loader()"
                             class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img src="https://www.heartbowsmakeup.com/wp-content/uploads/2015/02/Best-Winter-Fashion-Tips-Winter-Accessories.jpeg"
                                 alt="">
@@ -163,7 +178,7 @@
                 
                 <a href="fashion?category=">
                     <div class="inline-block px-3">
-                        <div
+                        <div onclick="loader()"
                             class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <img src="https://assets.vogue.in/photos/61c0245f033c74b2468a64a4/2:3/w_2560%2Cc_limit/Rihanna.jpg"
                                 alt="">
@@ -217,7 +232,7 @@
                 <div class="inline-block px-3  ">
                     <div
                         class="w-52 h-72 max-w-xs overflow-hidden  p-2  shadow-md bg-gray-100 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                        <a href="/fashion/{{i['Name']}}/{{i['_id']}}" >
+                        <a href="/fashion/{{i['Name']}}/{{i['_id']}}"  onclick="loader()"> 
 
                             <img class="w-full" src="{{ url_for('static', filename='uploads/'+i['ImageUrl'][0]) }}"
                                 alt="Image">
@@ -265,7 +280,7 @@
                 <div class="inline-block px-3  ">
                     <div
                         class="w-52 h-72 max-w-xs overflow-hidden  p-2  shadow-md bg-gray-100 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                        <a href="/fashion/{{i['Name']}}/{{i['_id']}}" >
+                        <a href="/fashion/{{i['Name']}}/{{i['_id']}}" onclick="loader()">
 
                             <img class="w-full" src="{{ url_for('static', filename='uploads/'+i['ImageUrl'][0]) }}"
                                 alt="Image">
@@ -314,7 +329,7 @@
                 <div class="inline-block px-3  ">
                     <div
                         class="w-52 h-72 max-w-xs overflow-hidden  p-2  shadow-md bg-gray-100 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                        <a href="/fashion/{{i['Name']}}/{{i['_id']}}" >
+                        <a href="/fashion/{{i['Name']}}/{{i['_id']}}" onclick="loader()" >
 
                             <img class="w-full" src="{{ url_for('static', filename='uploads/'+i['ImageUrl'][0]) }}"
                                 alt="Image">
@@ -340,6 +355,7 @@
 
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -370,7 +386,11 @@
 
 
         }
-
+        const loader=()=>
+        {
+            document.getElementById("loader").classList='block'
+            document.getElementById("loader_ex").classList="opacity-50"
+        }
 
     //     function fetchData() {
     //     x=document.getElementById("search1").value
