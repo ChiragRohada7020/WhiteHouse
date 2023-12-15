@@ -9,9 +9,18 @@
 </head>
 <body>
     
-
-
+    <div id="loader" class="hidden ">
     
+        <div role="status" class="fixed top-96 z-50 left-52">
+         <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+             <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+         </svg>
+         <span class="sr-only">Loading...</span>
+     </div>
+
+   <div id="loader_ex" class="">
+     
     <nav class="bg-white w-full fixed  top-0 z-50 border-2 border-gray-100">
         <div class="grid grid-cols-1 md:grid-cols-2 p-5 md:p-10 md:pt-5 ">
             <div class="flex  gap-10  ">
@@ -23,18 +32,18 @@
             </div>
             <div id="nav" class="hidden  m-5 md:block">
                 <ul class="flex  flex-col md:flex-row duration-300   gap-10 text-lg md:text-xl pt-4  font-semibold  ">
-                    <a href="{{ url_for('index') }}" >
+                    <a href="{{ url_for('index') }}"  onclick="loader()">
                         <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8 uppercase">
                             Home
                         </li>
                     </a>
-                    <a href="{{ url_for('cart') }}">
+                    <a href="{{ url_for('cart') }}"  onclick="loader()">
                         <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8 uppercase">
                             Cart
                         </li>
                     </a>
                    
-                    <a href="/{{login}}">
+                    <a href="/{{login}}"  onclick="loader()">
                         <li class="hover:underline decoration-orange-500 decoration-2 underline-offset-8 uppercase">
                            {{login}}
                         </li>
@@ -213,7 +222,7 @@
 
     <div class="flex overflow-x-scroll pb-10  px-2 hide-scroll-bar">
         <div class="flex flex-nowrap ">
-           <a href="fashion?category=shirt&type=Mens">
+           <a href="fashion?category=shirt&type=Mens"  onclick="loader()">
             <div class="inline-block px-3">
                 <div
                     class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -224,7 +233,7 @@
             </div>
            </a>
 
-           <a href="fashion?type=Mens&category=tshirt">
+           <a href="fashion?type=Mens&category=tshirt"  onclick="loader()">
             <div class="inline-block px-3">
                 <div
                     class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -235,7 +244,7 @@
             </div>
            </a>
            
-            <a href="fashion?category=">
+            <a href="fashion?category="  onclick="loader()">
                 <div class="inline-block px-3">
                     <div
                         class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -246,7 +255,7 @@
                 </div>
             </a>
             
-            <a href="fashion?category=sweater">
+            <a href="fashion?category=sweater"  onclick="loader()">
                 <div class="inline-block px-3">
                     <div
                         class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -257,7 +266,7 @@
                 </div>
             </a>
             
-            <a href="fashion?category=">
+            <a href="fashion?category="  onclick="loader()">
                 <div class="inline-block px-3">
                     <div
                         class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -279,7 +288,7 @@
 
     <div class="flex overflow-x-scroll pb-10  px-2 hide-scroll-bar">
         <div class="flex flex-nowrap ">
-           <a href="fashion?type=Mens">
+           <a href="fashion?type=Mens"  onclick="loader()">
             <div class="inline-block px-3">
                 <div
                     class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -290,7 +299,7 @@
             </div>
            </a>
 
-           <a href="fashion?type=Womens">
+           <a href="fashion?type=Womens"  onclick="loader()">
             <div class="inline-block px-3">
                 <div
                     class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -301,7 +310,7 @@
             </div>
            </a>
            
-            <a href="fashion?category=">
+            <a href="fashion?category="  onclick="loader()">
                 <div class="inline-block px-3">
                     <div
                         class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -312,7 +321,7 @@
                 </div>
             </a>
             
-            <a href="fashion?category=sweater">
+            <a href="fashion?category=sweater"  onclick="loader()">
                 <div class="inline-block px-3">
                     <div
                         class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -323,7 +332,7 @@
                 </div>
             </a>
             
-            <a href="fashion?category=">
+            <a href="fashion?category="  onclick="loader()">
                 <div class="inline-block px-3">
                     <div
                         class="w-20 h-20 max-w-xs overflow-hidden rounded-full shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -359,7 +368,7 @@
             {{i["Brand"]}}
           </p>
         </div>
-        <a class="pt-2" href="/fashion/{{i['Name']}}/{{i['_id']}}" target="_blank">
+        <a class="pt-2" href="/fashion/{{i['Name']}}/{{i['_id']}}" target="_blank"  onclick="loader()">
         <div class="prod-img justify-center items-center">
 
                 <img class="w-full h-52 text-center " src="{{ url_for('static', filename='uploads/'+i['ImageUrl'][0]) }}"
@@ -372,7 +381,7 @@
         <div class="prod-info grid gap-10 mt-5">
           
           <div class="flex flex-col md:flex-row justify-between items-center text-gray-900">
-            <button onclick="fetchData('{{i['_id']}}')"
+            <button onclick="fetchData('{{i['_id']}}')" 
                     class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Add
               to cart</button>
               <div class="flex items-center  p-6 pb-2">
@@ -403,6 +412,7 @@
 <div class="mb-20">
   
 </div>
+   </div>
 <script>
     const filter = () => {
         nav1 = document.getElementById("filter").classList[0]
@@ -475,6 +485,11 @@ fetch('/like/'+id)
 
     )
 }
+const loader=()=>
+        {
+            document.getElementById("loader").classList='block'
+            document.getElementById("loader_ex").classList="opacity-50"
+        }
 </script>
 
 <!-- ... (unchanged parts of HTML) ... -->
