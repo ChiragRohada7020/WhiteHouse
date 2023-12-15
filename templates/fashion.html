@@ -18,6 +18,7 @@
          </svg>
          <span class="sr-only">Loading...</span>
      </div>
+    </div>
 
    <div id="loader_ex" class="">
      
@@ -368,7 +369,7 @@
             {{i["Brand"]}}
           </p>
         </div>
-        <a class="pt-2" href="/fashion/{{i['Name']}}/{{i['_id']}}" target="_blank"  onclick="loader()">
+        <a class="pt-2" href="/fashion/{{i['Name']}}/{{i['_id']}}"   onclick="loader()">
         <div class="prod-img justify-center items-center">
 
                 <img class="w-full h-52 text-center " src="{{ url_for('static', filename='uploads/'+i['ImageUrl'][0]) }}"
