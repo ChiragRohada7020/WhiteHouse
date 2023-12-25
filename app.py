@@ -411,7 +411,10 @@ def fashion():
     # print(Dress)
 
 
-    return render_template("fashion.html",Filter=Filter,Dress=filtered_products,login=login,type=type )
+    response = make_response(render_template("fashion.html",Filter=Filter,Dress=filtered_products,login=login,type=type ))
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    return response
+    
 
 
 
