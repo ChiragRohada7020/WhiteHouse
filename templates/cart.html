@@ -142,8 +142,8 @@
                              <div class="flex flex-col gap-5 ml-2">
                                  
                                  <div class="mt-5  flex flex-col gap-4">
-                                     <div class="flex flex-col gap-1"><h2 class="text-base font-bold text-gray-900"><span class="px-2"><span class="text-purple-500">B</span>arcode</span>  </h2>
-                                        <p class="px-2 text-gray-400">{{i['Barcode']}}</p></div>
+                                     <!-- <div class="flex flex-col gap-1"><h2 class="text-base font-bold text-gray-900"><span class="px-2"><span class="text-purple-500">B</span>arcode</span>  </h2>
+                                        <p class="px-2 text-gray-400">{{i['Barcode']}}</p></div> -->
                                     <div  class="flex flex-col gap-1"> <p class="mt-1 text-base  text-gray-700"><span class="px-2 text-base font-bold"><span class="text-purple-500">D</span>escription</span> </p>
                                         <p class="capitalize px-2 text-gray-500	">{{i["Description"]}}</p></div>
                                  </div>
@@ -153,13 +153,25 @@
                              </div>
                         </div>
                         
-                        <div class=" w-full ">
-                            <a onclick="fetchData('{{i['_id']}}')">
-                                <button class="w-full items-end text-center bg-red-800 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl">
-                                    Delete
-                                  </button>
-                            </a>
+                        <div class="flex gap-12">
+
+                            <div class=" w-44">
+                                <a onclick="fetchData('{{i['_id']}}')">
+                                    <button class="w-full items-end text-center bg-red-800 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl">
+                                        Delete
+                                      </button>
+                                </a>
+                            </div>
+                            <!-- <div class=" w-44">
+                                <a >
+                                    <button class="w-full items-end text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl">
+                                        {{i['like']}}
+                                      </button>
+                                </a>
+                            </div> -->
+
                         </div>
+                        
                         
                     </div>
                     
