@@ -1027,6 +1027,10 @@ video {
   width: 16rem;
 }
 
+.w-96 {
+  width: 24rem;
+}
+
 .max-w-5xl {
   max-width: 64rem;
 }
@@ -1516,6 +1520,10 @@ video {
 
 .lowercase {
   text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .text-black {

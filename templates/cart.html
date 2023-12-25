@@ -128,7 +128,7 @@
                             <div class="p-5">
                                 <div>
                                  <img src="{{ url_for('static', filename='uploads/'+i['ImageUrl'][0]) }}" alt="product-image"
-                                 class="w-64 h-44 rounded-lg sm:w-40" />
+                                 class="w-96 h-44 rounded-lg sm:w-40" />
                                 </div>
                                 <div>
                                  <div class="mt-2 p-5">
@@ -141,9 +141,11 @@
      
                              <div class="flex flex-col gap-5 ml-2">
                                  
-                                 <div class="mt-5  flex flex-col gap-2">
-                                     <h2 class="text-base font-bold text-gray-900"><span class="px-2"><span class="text-purple-500">B</span>arcode :-</span>  {{i['Barcode']}}</h2>
-                                     <p class="mt-1 text-base  text-gray-700"><span class="px-2 text-base font-bold"><span class="text-purple-500">D</span>escription :-</span> {{i["Description"]}}</p>
+                                 <div class="mt-5  flex flex-col gap-4">
+                                     <div class="flex flex-col gap-1"><h2 class="text-base font-bold text-gray-900"><span class="px-2"><span class="text-purple-500">B</span>arcode</span>  </h2>
+                                        <p class="px-2">{{i['Barcode']}}</p></div>
+                                    <div class="flex flex-col gap-1> <p class="mt-1 text-base  text-gray-700"><span class="px-2 text-base font-bold"><span class="text-purple-500">D</span>escription</span> </p>
+                                        <p class="capitalize px-2	">{{i["Description"]}}</p></div>
                                  </div>
      
                                  
@@ -153,7 +155,7 @@
                         
                         <div class=" w-full ">
                             <a onclick="fetchData('{{i['_id']}}')">
-                                <button class="w-full items-end text-center bg-red-500 hover:bg-red-400 text-white font-bold py-3 px-4 rounded-xl">
+                                <button class="w-full items-end text-center bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl">
                                     Delete
                                   </button>
                             </a>
