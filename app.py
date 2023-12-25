@@ -75,7 +75,14 @@ def cart():
         name = session.get('name')
 
 
-        
+        items=0
+    
+        cart=mydb.User.find({'email':session.get('user_id')},{'cart':1,"_id":0})
+        for i in cart:
+            for j in i['cart']:
+                
+                items=items+1
+        print(items)
 
         if id:
 
@@ -100,6 +107,8 @@ def cart():
                 cart.append(product)
     else:
         return redirect(url_for('login'))
+    
+
 
 
             
@@ -108,7 +117,7 @@ def cart():
     
 
     # result1=mydb.Mens.find({})
-    return render_template("cart.html",cart=cart)
+    return render_template("cart.html",cart=cart,items=items)
 
 
 
