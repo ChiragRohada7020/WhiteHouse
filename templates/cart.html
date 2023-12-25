@@ -133,7 +133,7 @@
                                 <div>
                                  <div class="mt-2 p-5">
                                      <!-- <h2 class="text-lg font-bold text-gray-900">{{i['Brand']}}</h2> -->
-                                     <p class=" text-lg font-bold text-gray-700">{{i["Category"]}}</p>
+                                     <p class=" text-lg font-bold text-gray-700 capitalize">{{i["Category"]}}</p>
                                  </div>
      
                                 </div>
@@ -143,9 +143,9 @@
                                  
                                  <div class="mt-5  flex flex-col gap-4">
                                      <div class="flex flex-col gap-1"><h2 class="text-base font-bold text-gray-900"><span class="px-2"><span class="text-purple-500">B</span>arcode</span>  </h2>
-                                        <p class="px-2">{{i['Barcode']}}</p></div>
-                                    <div class="flex flex-col gap-1> <p class="mt-1 text-base  text-gray-700"><span class="px-2 text-base font-bold"><span class="text-purple-500">D</span>escription</span> </p>
-                                        <p class="capitalize px-2	">{{i["Description"]}}</p></div>
+                                        <p class="px-2 text-gray-400">{{i['Barcode']}}</p></div>
+                                    <div  class="flex flex-col gap-1"> <p class="mt-1 text-base  text-gray-700"><span class="px-2 text-base font-bold"><span class="text-purple-500">D</span>escription</span> </p>
+                                        <p class="capitalize px-2 text-gray-500	">{{i["Description"]}}</p></div>
                                  </div>
      
                                  
@@ -155,7 +155,7 @@
                         
                         <div class=" w-full ">
                             <a onclick="fetchData('{{i['_id']}}')">
-                                <button class="w-full items-end text-center bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl">
+                                <button class="w-full items-end text-center bg-red-800 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl">
                                     Delete
                                   </button>
                             </a>
