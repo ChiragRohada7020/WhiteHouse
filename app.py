@@ -7,6 +7,7 @@ import pymongo
 from bson import ObjectId
 import uuid
 from pymongo import TEXT
+from random import sample,randint
 
 import datetime 
 
@@ -405,6 +406,11 @@ def fashion():
                   ]
     }
     filtered_products = list(mydb.mens.find(query))
+    random_count = int(request.args.get('random_count', '15'))
+
+    shuffled_products = sample(filtered_products, min(random_count, len(filtered_products)))
+    random_count = randint(12, 20)
+
 
     filter=mydb.filter.find()
     Filter=[]
@@ -420,7 +426,7 @@ def fashion():
     # print(Dress)
 
 
-    response = make_response(render_template("fashion.html",Filter=Filter,Dress=filtered_products,login=login,type=type ))
+    response = make_response(render_template("fashion.html",Filter=Filter,Dress=shuffled_products,login=login,type=type ))
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     return response
     
