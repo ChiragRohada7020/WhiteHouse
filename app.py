@@ -407,7 +407,7 @@ def fashion():
     }
     filtered_products = list(mydb.mens.find(query))
     random_count = int(request.args.get('random_count', '15'))
-    if category:
+    if type:
             shuffled_products = sample(filtered_products, min(random_count, len(filtered_products)))
     else:
         shuffled_products = filtered_products
