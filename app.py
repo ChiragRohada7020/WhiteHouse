@@ -153,7 +153,7 @@ def index():
     else:
         login="login"
     Trends=mydb.mens.find({"Trending":1}).limit(4)
-    mens=mydb.mens.find({"Type":"Mens"}).limit(4)
+    mens=mydb.mens.find({"Type":"Mens"})
     womens=mydb.mens.find({"Type":"Womens"}).limit(4)
     
 
@@ -171,7 +171,7 @@ def index():
         Womens.append(i)
 
 
-    random_count = int(request.args.get('random_count', '15'))
+    random_count = int(request.args.get('random_count', '10'))
     
     shuffled_products = sample(Mens, min(random_count, len(Mens)))
 
