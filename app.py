@@ -170,7 +170,12 @@ def index():
     for i in womens:
         Womens.append(i)
 
-    response = make_response(render_template("index.html",Trending=Trending,Mens=Mens,Womens=Womens,login=login,items=items))
+
+    random_count = int(request.args.get('random_count', '15'))
+    
+    shuffled_products = sample(Mens, min(random_count, len(Mens)))
+
+    response = make_response(render_template("index.html",Trending=Trending,Mens=shuffled_products,Womens=Womens,login=login,items=items))
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     
 
