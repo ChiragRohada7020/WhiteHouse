@@ -152,9 +152,9 @@ def index():
         
     else:
         login="login"
-    Trends=mydb.mens.find({"Trending":1}).limit(4)
+    Trends=mydb.mens.find({"Trending":1})
     mens=mydb.mens.find({"Type":"Mens"})
-    womens=mydb.mens.find({"Type":"Womens"}).limit(4)
+    womens=mydb.mens.find({"Type":"Womens"})
     
 
 
@@ -171,11 +171,13 @@ def index():
         Womens.append(i)
 
 
-    random_count = int(request.args.get('random_count', '10'))
+    random_count = int(request.args.get('random_count', '5'))
     
-    shuffled_products = sample(Mens, min(random_count, len(Mens)))
+    shuffled_mens = sample(Mens, min(random_count, len(Mens)))
+    shuffled_womens = sample(Mens, min(random_count, len(Mens)))
 
-    response = make_response(render_template("index.html",Trending=Trending,Mens=shuffled_products,Womens=Womens,login=login,items=items))
+
+    response = make_response(render_template("index.html",Trending=Trending,Mens=shuffled_mens,Womens=shuffled_womens,login=login,items=items))
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     
 
