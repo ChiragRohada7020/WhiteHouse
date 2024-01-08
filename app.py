@@ -153,8 +153,8 @@ def index():
     else:
         login="login"
     Trends=mydb.mens.find({"Trending":1}).limit(5)
-    mens=mydb.mens.find({"Type":"Mens"})
-    womens=mydb.mens.find({"Type":"Womens"})
+    mens=list(mydb.mens.find({"Type":"Mens"}))
+    womens=list(mydb.mens.find({"Type":"Womens"}))
     
 
 
