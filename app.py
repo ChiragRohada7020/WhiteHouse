@@ -174,7 +174,7 @@ def index():
     random_count = int(request.args.get('random_count', '5'))
     
     shuffled_mens = sample(Mens, min(random_count, len(Mens)))
-    shuffled_womens = sample(Mens, min(random_count, len(Mens)))
+    shuffled_womens = sample(Mens, min(random_count, len(Womens)))
 
 
     response = make_response(render_template("index.html",Trending=Trending,Mens=shuffled_mens,Womens=shuffled_womens,login=login,items=items))
