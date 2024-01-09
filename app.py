@@ -152,7 +152,7 @@ def index():
         
     else:
         login="login"
-    Trends=list(mydb.mens.find({"Trending":1}) .sort({ "_id": -1 })  .limit(20))
+    Trends=list(mydb.mens.find({"Trending":1}) .sort({ "_id": -1 })  .limit(15))
     mens=list(mydb.mens.find({"Type":"Mens"}))
     womens=list(mydb.mens.find({"Type":"Womens"}))
     
